@@ -31,7 +31,7 @@ def play_audio(filename):
     pa.terminate()
 
 r = sr.Recognizer()
-cmd = Commander
+cmd = Commander()
 
 def initSpeech():
     print("Listening...")
@@ -50,7 +50,8 @@ def initSpeech():
 
     print("Your command")
     print(command)
-    if command == "quit":
+    if command in ["quit", "exit", "bye"]:
+        global running
         running = False
 
     cmd.discover(command)
